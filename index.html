@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haokun · 全栈 AI 工程师</title>
+  <meta name="description" content="全栈 AI 工程师：端云 Agent 系统、训推基础设施、大模型预训练与后训练、具身智能、金融实时系统与 AI for Science。" />
+  <meta property="og:title" content="Haokun · 全栈 AI 工程师" />
+  <meta property="og:description" content="从 GPU kernel 到云端 Agent，从模型训练到产品上线。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script>
+    document.documentElement.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark" aria-hidden="true"></span>HAOKUN
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#capabilities">能力</a>
+        <a href="#work">开源作品</a>
+        <a href="#experience">项目经历</a>
+        <a href="#contact">合作</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9A7 7 0 0 1 12 3z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span class="dot"></span>Full-stack AI Engineer · 可承接项目</p>
+          <h1 class="display reveal">全栈，<br />到每一层。</h1>
+          <p class="hero-en reveal">Full-stack, all the way down.</p>
+          <p class="lede reveal">
+            从 GPU kernel、训推系统、大模型训练，到端云 Agent、具身智能与金融实时系统——
+            把一个想法从公式推到上线，整条技术栈由我交付。
+          </p>
+          <div class="cta reveal">
+            <a class="btn btn-primary" href="#contact">聊聊你的项目 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#work">查看作品</a>
+          </div>
+        </div>
+
+        <figure class="stack reveal" aria-label="技术栈层级">
+          <figcaption class="stack-cap mono">THE STACK · 我工作的每一层</figcaption>
+          <ol class="stack-list">
+            <li><span class="mono">L6</span><b>产品</b><em>Web · 桌面 · 移动 · 可视化</em></li>
+            <li><span class="mono">L5</span><b>Agent</b><em>端侧 · 云端 · 多智能体编排</em></li>
+            <li><span class="mono">L4</span><b>模型</b><em>预训练 · 后训练 · RL</em></li>
+            <li><span class="mono">L3</span><b>系统</b><em>分布式训练 · 推理引擎 · 调度</em></li>
+            <li><span class="mono">L2</span><b>Kernel</b><em>CUDA · 量化 · WASM</em></li>
+            <li><span class="mono">L1</span><b>物理世界</b><em>机器人 · 行情 · 科学数据</em></li>
+          </ol>
+          <div class="stack-scan" aria-hidden="true"></div>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <dl class="stats reveal">
+          <div><dt>1.18×</dt><dd>128k 长上下文 prefill 加速<br /><span class="mono">Wavefill · RTX 5090</span></dd></div>
+          <div><dt>7</dt><dd>可独立承接的技术方向</dd></div>
+          <div><dt>L1→L6</dt><dd>从硬件到产品的全层交付</dd></div>
+          <div><dt>0→1</dt><dd>需求、原型、工程化到上线</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ CAPABILITIES ============ -->
+    <section class="section" id="capabilities">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">01 — Capabilities</p>
+          <h2 class="title">什么都能接，<span class="muted">每一样都做到底。</span></h2>
+        </header>
+
+        <div class="bento">
+          <article class="cell cell-wide reveal">
+            <div class="cell-top"><span class="mono idx">01</span><span class="mono en">Agent Systems</span></div>
+            <h3>端侧 & 云端 Agent 系统</h3>
+            <p>工具调用、记忆与状态、多智能体编排、流式协议与可观测性。端侧本地小模型低延迟运行，云端弹性调度与容错恢复，同一套 Agent 契约两端落地。</p>
+            <ul class="tags"><li>LangGraph</li><li>Rust Runtime</li><li>MCP</li><li>SSE</li><li>On-device LLM</li></ul>
+          </article>
+
+          <article class="cell reveal">
+            <div class="cell-top"><span class="mono idx">02</span><span class="mono en">Train / Infer Infra</span></div>
+            <h3>训推系统</h3>
+            <p>自研推理引擎与 CUDA kernel 优化、量化、KV Cache、投机解码；分布式训练与 RL rollout 调度。</p>
+            <ul class="tags"><li>CUDA</li><li>NVFP4 / FP8</li><li>vLLM · SGLang</li><li>Megatron · FSDP</li></ul>
+          </article>
+
+          <article class="cell reveal">
+            <div class="cell-top"><span class="mono idx">03</span><span class="mono en">Pre- & Post-training</span></div>
+            <h3>大模型预训练 / 后训练</h3>
+            <p>数据管线、预训练、SFT、偏好对齐与强化学习，评测体系搭建与训练稳定性诊断。</p>
+            <ul class="tags"><li>Data Pipeline</li><li>SFT</li><li>PPO · GRPO · DPO</li><li>Eval</li></ul>
+          </article>
+
+          <article class="cell reveal">
+            <div class="cell-top"><span class="mono idx">04</span><span class="mono en">Embodied AI</span></div>
+            <h3>具身智能</h3>
+            <p>VLA 模型、仿真到真机、感知—规划—控制闭环，以及端侧实时视觉推理。</p>
+            <ul class="tags"><li>VLA</li><li>Sim2Real</li><li>ROS 2</li><li>Isaac</li></ul>
+          </article>
+
+          <article class="cell reveal">
+            <div class="cell-top"><span class="mono idx">05</span><span class="mono en">Real-time Finance</span></div>
+            <h3>金融实时系统</h3>
+            <p>低延迟行情接入、交易与风控引擎、策略回测到实盘执行，时序数据存储与全链路监控。</p>
+            <ul class="tags"><li>C++ · Rust</li><li>Low Latency</li><li>Kafka</li><li>Time-series</li></ul>
+          </article>
+
+          <article class="cell reveal">
+            <div class="cell-top"><span class="mono idx">06</span><span class="mono en">AI for Science</span></div>
+            <h3>AI × 各学科</h3>
+            <p>生物医学、化学、材料等方向：分子与蛋白质建模、医学影像、科研数据平台——把领域问题翻译成可计算的问题。</p>
+            <ul class="tags"><li>Protein</li><li>Medical Imaging</li><li>Bioinformatics</li></ul>
+          </article>
+
+          <article class="cell cell-wide reveal">
+            <div class="cell-top"><span class="mono idx">07</span><span class="mono en">Full-stack Product</span></div>
+            <h3>全栈产品交付</h3>
+            <p>Web / 桌面 / 移动端，浏览器内 WASM 运行时，交互式数据可视化与内容产品，从 CI/CD 到上线运维。研究原型与生产系统之间的最后一公里，也由我来走完。</p>
+            <ul class="tags"><li>TypeScript</li><li>Rust → WASM</li><li>WebGPU</li><li>React</li><li>DevOps</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">02 — Selected Work</p>
+          <h2 class="title">开源作品，<span class="muted">横跨四层技术栈。</span></h2>
+        </header>
+
+        <div class="works">
+          <article class="work reveal">
+            <div class="work-meta mono"><span>L2 · Kernel</span><span>C++ · CUDA</span></div>
+            <h3>Wavefill</h3>
+            <p class="work-sub">面向 RTX 5090 的长上下文 prefill 加速</p>
+            <p>在自研 C++/CUDA 推理引擎上，以 cluster split-KV 注意力、FP16 P·V 累加与 NVFP4 GEMV 优化长 prompt 预填充；FP64 oracle、数值压力测试与 SASS diff 全面校验。</p>
+            <div class="work-metric"><b>1.18×</b><span>128k prefill</span><b>1.40×</b><span>注意力 kernel</span></div>
+            <div class="work-links">
+              <a href="https://github.com/haokun12x/wavefill" target="_blank" rel="noopener">源码 ↗</a>
+            </div>
+          </article>
+
+          <article class="work reveal">
+            <div class="work-meta mono"><span>L2 → L6 · Runtime</span><span>Rust · WASM · TS</span></div>
+            <h3>Diorama</h3>
+            <p class="work-sub">运行在浏览器里的一台完整计算机</p>
+            <p>Rust 内核编译为 WebAssembly，提供 VFS、进程与 WASI 服务；浏览器内 Clang/LLD 编译 C 程序，YOLO26 经 WebGPU 本地推理，带进程观测与内存检视。</p>
+            <div class="work-metric"><b>0</b><span>后端依赖</span><b>100%</b><span>本地运行</span></div>
+            <div class="work-links">
+              <a href="https://haokun12x.github.io/diorama/" target="_blank" rel="noopener">在线体验 ↗</a>
+              <a href="https://github.com/haokun12x/diorama" target="_blank" rel="noopener">源码 ↗</a>
+            </div>
+          </article>
+
+          <article class="work reveal">
+            <div class="work-meta mono"><span>L5 · Agent</span><span>LangGraph · Rust</span></div>
+            <h3>Agentic Systems Fieldnotes</h3>
+            <p class="work-sub">企业级 Agent 系统的交互式实地笔记</p>
+            <p>拆解自适应 Agent 循环、工作区与状态、SSE 协议与权限路由；同一套 Agent 契约对比 LangGraph 与自研 Rust kernel 两条后端路线。</p>
+            <div class="work-metric"><b>2</b><span>后端实现路线</span><b>6</b><span>真实用例</span></div>
+            <div class="work-links">
+              <a href="https://haokun12x.github.io/agentic-systems-fieldnotes/" target="_blank" rel="noopener">在线阅读 ↗</a>
+              <a href="https://github.com/haokun12x/agentic-systems-fieldnotes" target="_blank" rel="noopener">源码 ↗</a>
+            </div>
+          </article>
+
+          <article class="work reveal">
+            <div class="work-meta mono"><span>L4 · Model</span><span>Python · RL</span></div>
+            <h3>Post-Training 101</h3>
+            <p class="work-sub">从一个公式出发，分层拆解后训练工具体系</p>
+            <p>由策略梯度目标推出六层工具栈：显存算术、RL 循环、框架解剖与选型；配套交互知识地图、计算器与中英双语长片。</p>
+            <div class="work-metric"><b>6</b><span>层工具栈</span><b>2×32</b><span>分钟双语长片</span></div>
+            <div class="work-links">
+              <a href="https://haokun12x.github.io/post-training-101/" target="_blank" rel="noopener">在线阅读 ↗</a>
+              <a href="https://github.com/haokun12x/post-training-101" target="_blank" rel="noopener">源码 ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE (待填写) ============ -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow mono">03 — Experience</p>
+          <h2 class="title">项目经历，<span class="muted">交付过的系统。</span></h2>
+        </header>
+
+        <!--
+          填写说明：
+          · 每个 <article class="exp"> 是一条项目经历，复制整个块即可新增。
+          · 填写完成后，删除 class 中的 "is-placeholder" 和 <span class="badge"> 待填写 </span>。
+          · data-area 可填：Agent / Infra / Model / Embodied / Finance / Science / Product
+        -->
+        <div class="timeline">
+          <article class="exp is-placeholder reveal" data-area="Agent">
+            <div class="exp-when mono">2025 — 至今</div>
+            <div class="exp-body">
+              <div class="exp-head">
+                <h3>项目名称 <span class="badge">待填写</span></h3>
+                <span class="exp-role mono">角色 · 客户 / 团队</span>
+              </div>
+              <p>一两句话描述：解决了什么问题、系统规模、你负责的部分。</p>
+              <ul class="exp-points">
+                <li>关键技术决策或架构亮点</li>
+                <li>量化结果，例如：延迟降低 X%、吞吐提升 X 倍、成本下降 X%</li>
+              </ul>
+              <ul class="tags"><li>技术栈</li><li>技术栈</li></ul>
+            </div>
+          </article>
+
+          <article class="exp is-placeholder reveal" data-area="Infra">
+            <div class="exp-when mono">2024 — 2025</div>
+            <div class="exp-body">
+              <div class="exp-head">
+                <h3>项目名称 <span class="badge">待填写</span></h3>
+                <span class="exp-role mono">角色 · 客户 / 团队</span>
+              </div>
+              <p>一两句话描述：解决了什么问题、系统规模、你负责的部分。</p>
+              <ul class="exp-points">
+                <li>关键技术决策或架构亮点</li>
+                <li>量化结果</li>
+              </ul>
+              <ul class="tags"><li>技术栈</li><li>技术栈</li></ul>
+            </div>
+          </article>
+
+          <article class="exp is-placeholder reveal" data-area="Model">
+            <div class="exp-when mono">2023 — 2024</div>
+            <div class="exp-body">
+              <div class="exp-head">
+                <h3>项目名称 <span class="badge">待填写</span></h3>
+                <span class="exp-role mono">角色 · 客户 / 团队</span>
+              </div>
+              <p>一两句话描述：解决了什么问题、系统规模、你负责的部分。</p>
+              <ul class="exp-points">
+                <li>关键技术决策或架构亮点</li>
+                <li>量化结果</li>
+              </ul>
+              <ul class="tags"><li>技术栈</li><li>技术栈</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW I WORK ============ -->
+    <section class="section section-tight">
+      <div class="wrap">
+        <ol class="process reveal">
+          <li><span class="mono">01</span><b>定义问题</b><p>先把需求翻译成可度量的目标与约束。</p></li>
+          <li><span class="mono">02</span><b>快速原型</b><p>最短路径验证关键假设，尽早暴露风险。</p></li>
+          <li><span class="mono">03</span><b>工程化</b><p>测试、基准、可观测性，数字说话。</p></li>
+          <li><span class="mono">04</span><b>交付上线</b><p>文档、部署与交接，系统能独立运转。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <p class="eyebrow mono reveal">04 — Let's build</p>
+        <h2 class="display contact-title reveal">有一个难题？<br /><span class="muted">那正是我想接的。</span></h2>
+        <div class="contact-links reveal">
+          <!-- 把下面的邮箱换成你的联系邮箱 -->
+          <a class="btn btn-primary" href="mailto:hello@example.com">hello@example.com <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="https://github.com/haokun12x" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner mono">
+      <span>© <span id="year">2026</span> Haokun</span>
+      <span>Kernel → Cloud → Product</span>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
