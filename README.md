@@ -6,6 +6,7 @@
 - `assets/style.css` — 样式（深浅色主题变量在文件顶部）
 - `assets/main.js` — 主题切换与滚动动效
 - `factory/` — 具身产线仿真子页面（Three.js，ES modules + importmap，无构建）：`js/data.js` 工艺与产品知识，`js/sim.js` 仿真内核，`js/world.js` 三维车间，`js/lab.js` 产品实验室
+- `harbor/index.html` — 果冻港湾单文件 WebGPU 场景（无依赖）：质点弹簧果冻 + FFD、浅水方程海面、焦散 / SSR / 折射、港口作业仿真
 
 ## 填写项目经历
 
