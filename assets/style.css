@@ -297,6 +297,8 @@ li.hot::before { content: ""; width: 5px; height: 5px; margin: 0 8px 0 1px; vert
   transition: border-color .4s var(--ease), transform .4s var(--ease);
 }
 .work:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+.work-feature { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: linear-gradient(135deg, var(--accent-soft), var(--bg-elev) 55%); }
+.work-feature > p:not(.work-sub) { max-width: 46em; }
 .work-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; }
 .work h3 { font-family: var(--font-serif); font-weight: 600; font-size: clamp(26px, 2.6vw, 32px); letter-spacing: -0.01em; margin-top: 14px; }
 .work-sub { color: var(--accent); font-size: 15px; }

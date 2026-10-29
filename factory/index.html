@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>具身产线仿真 · Haokun</title>
+  <meta name="description" content="可交互的具身机器人总装车间仿真：关节模组线为人形、四足、轮式移动操作三条总装线供料，AMR 看板配送，随机节拍、故障与在线质量判定，附产品实验室。" />
+  <meta property="og:title" content="具身产线仿真 · Embodied Assembly Floor" />
+  <meta property="og:description" content="多条产线并行的人形 / 四足 / 轮式机器人自动化总装仿真。" />
+  <meta name="theme-color" content="#141518" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="factory.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body class="log-min">
+  <div id="stage" aria-label="三维车间视图"></div>
+
+  <header id="top">
+    <a class="back mono" href="../" title="返回主页">← HAOKUN</a>
+    <div class="ttl"><b>具身产线仿真</b><span class="mono">EMBODIED ASSEMBLY FLOOR</span></div>
+    <div class="clockbox"><span class="mono" id="clock">D1 08:00:00</span><div id="speed" class="seg" aria-label="仿真速度"></div></div>
+    <div id="kpi" class="kpi">
+      <div><i>下线</i><b data-k="out">0</b></div>
+      <div><i>UPH</i><b data-k="uph">–</b></div>
+      <div><i>OEE</i><b data-k="oee">–</b></div>
+      <div><i>FPY</i><b data-k="fpy">–</b></div>
+      <div><i>WIP</i><b data-k="wip">–</b></div>
+      <div><i>瓶颈</i><b data-k="bn">–</b></div>
+      <div><i>停机</i><b data-k="down">0</b></div>
+    </div>
+    <div class="tools">
+      <div id="views" class="seg" aria-label="视角">
+        <button data-v="overview" title="全景 (0)">全景</button><button data-v="J" title="关节模组线 (1)">J</button><button data-v="H" title="人形线 (2)">H</button><button data-v="Q" title="四足线 (3)">Q</button><button data-v="W" title="轮式线 (4)">W</button>
+      </div>
+      <div class="menuwrap">
+        <button id="btn-layers" class="btn">图层</button>
+        <div id="layers" class="menu">
+          <label><input type="checkbox" data-layer="labels" checked> 工位标签</label>
+          <label><input type="checkbox" data-layer="fences" checked> 安全围栏</label>
+          <label><input type="checkbox" data-layer="paths"> AMR 路径</label>
+          <label><input type="checkbox" data-layer="heat"> 利用率热力</label>
+          <label><input type="checkbox" data-layer="shadows" checked> 阴影</label>
+        </div>
+      </div>
+      <button id="btn-lab" class="btn primary">产品实验室</button>
+      <button id="btn-help" class="btn" title="概览与玩法">?</button>
+    </div>
+  </header>
+
+  <aside id="board" aria-label="产线看板">
+    <div id="board-lines"></div>
+    <div id="board-log"></div>
+  </aside>
+
+  <aside id="inspector" aria-label="详情"><div id="insp-body"></div></aside>
+
+  <section id="logbox" aria-label="事件流">
+    <header>
+      <b>MES 事件流</b>
+      <div id="log-filter" class="seg small">
+        <button data-f="all" class="on">全部</button><button data-f="fault">故障</button><button data-f="quality">质量</button><button data-f="logistics">物流</button><button data-f="output">产出</button>
+      </div>
+      <button id="log-toggle" class="btn ghost" title="展开 / 收起">▴▾</button>
+    </header>
+    <ul id="log-list"></ul>
+  </section>
+
+  <button id="btn-board" class="btn mob">看板</button>
+  <div id="fps" class="mono"></div>
+
+  <div id="lab" aria-hidden="true">
+    <header class="lab-top">
+      <div class="lab-title"><span class="mono">PRODUCT LAB</span><b>产品实验室</b></div>
+      <nav class="lab-tabs"></nav>
+      <button class="lab-close btn">返回车间 ✕</button>
+    </header>
+    <aside class="lab-left"></aside>
+    <div class="lab-stage">
+      <canvas></canvas>
+      <div class="lab-tip"></div>
+      <div class="lab-hud"></div>
+      <div class="lab-legend"></div>
+    </div>
+    <aside class="lab-right">
+      <div class="lab-parts"></div>
+      <div class="lab-part-detail"></div>
+    </aside>
+    <footer class="lab-bar">
+      <div class="lab-ctl">
+        <label class="sl">爆炸视图 <b id="lab-explode-v">0%</b><input id="lab-explode" type="range" min="0" max="1" step="0.01" value="0"></label>
+        <div class="lab-toggles">
+          <label><input type="checkbox" data-opt="axes" checked> 关节轴</label>
+          <label><input type="checkbox" data-opt="sensors"> 传感器视场</label>
+          <label><input type="checkbox" data-opt="com" checked> 质心 / 支撑域</label>
+          <label><input type="checkbox" data-opt="xray"> 透视外壳</label>
+          <label><input type="checkbox" data-opt="rotate"> 自动旋转</label>
+        </div>
+      </div>
+      <div class="lab-demo"><span class="mono small">MOTION</span><div id="lab-demos" class="seg"></div></div>
+      <div id="lab-widget"></div>
+    </footer>
+  </div>
+
+  <div id="loader"><div><span class="mono">EMBODIED ASSEMBLY FLOOR</span><b>正在搭建车间…</b><i></i></div></div>
+  <noscript><p class="nojs">此页面需要启用 JavaScript 与 WebGL。</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
